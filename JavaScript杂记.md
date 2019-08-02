@@ -49,12 +49,16 @@ fn = function(){
 
 有很多js库中封装了添加类名的方法，典型的比如jquery中的**addClass()**方法
 
-js自己有哪些可以设置class的方法。主要有三种:  
-**el.setAttribute('class','classX')**  ie7及ie7以下版本不支持  
-**el.setAtrribute('className','classX')** 不兼容ie7+ /Firefox/Safari/Chrome/Opera, 兼容ie7及ie7以下版本  
-**el.className='classX'** 所有浏览器都支持
+js自己有哪些可以设置class的方法。主要有三种: 
+
+**el.setAttribute('class','classX')**    ie7及ie7以下版本不支持  
+
+**el.setAtrribute('className','classX')**   不兼容ie7+ /Firefox/Safari/Chrome/Opera, 兼容ie7及ie7以下版本 
+
+**el.className='classX'**   所有浏览器都支持
 
 另: Element.classList 是一个只读属性，返回一个元素的类属性的实时DOMTokenList 集合。详见 [MDN web docs](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/classList)  
+
 `let elementClasses = elementNodeReference.classList;`  
 
 `add( String [, String] )`  
