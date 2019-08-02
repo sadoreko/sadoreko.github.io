@@ -7,4 +7,4 @@
 
 2019.6 [gitNote](/gitNote.md)
 
-2019.7 [JavaScript内层函数调用](https://github.com/sadoreko/sadoreko.github.io/blob/master/JavaScript%E7%9B%B8%E5%85%B3.md)
+2019.7 [JavaScript杂记](/JavaScript%E7%9B%B8%E5%85%B3.md)
