@@ -7,4 +7,4 @@
 
 2019.6 [gitNote](/gitNote.md)
 
-2019.7 [JavaScript杂记](/JavaScript%E7%9B%B8%E5%85%B3.md)
+2019.7 [JavaScript杂记](/JavaScript%E6%9D%82%E8%AE%B0.md)
