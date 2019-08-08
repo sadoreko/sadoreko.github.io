@@ -7,23 +7,23 @@
     <title>正则RegExp对象的实例方法</title>
 </head>
 <body>
-    <script>
-    var str = 'js js js';
-    var pattern = /js/; 
-    var pattern2 = /js/g; 
-
-    console.log(pattern.exec(str));
-    console.log(pattern.exec(str));   
-    console.log("---"); 
+    <script> 
+    // var str = 'js js js';
+    // var pattern = /js/; 
+    // console.log(pattern.exec(str));
+    // console.log(pattern.exec(str)); 
+        
     // 不使用全局匹配g时, 每次exec都只匹配一个js, 这个js的j在字符串的0位
     // pattern.lastIndex属性, 默认情况/非全局匹配时, 值为0
-    // 全局匹配时, pattern.lastIndex = 匹配到的字符的下一个位置
+    // 全局匹配时, pattern.lastIndex = 匹配到的字符串的下一个位置
 
-    console.log(pattern2.exec(str));   // index 0  第一个j在'js js js'的0位  
-    console.log(pattern2.exec(str));   // index 3  j的位置在'j0s1 2j34 5js'的3号位
-    console.log(pattern2.exec(str));   // index 6
-    console.log(pattern2.exec(str));   // null
-    console.log(pattern2.exec(str));   // index 0
+    var str = 'js js js';
+    var pattern = /js/g;
+    console.log(pattern.exec(str));   // index 0  第一个j在'js js js'的0位  
+    console.log(pattern.exec(str));   // index 3  j的位置在'j0s1 2j34 5js'的3号位
+    console.log(pattern.exec(str));   // index 6
+    console.log(pattern.exec(str));   // null
+    console.log(pattern.exec(str));   // index 0
 
     // 第一次执行pattern.exec()时, 匹配到的'js'中的j为0号位, index = 0,
     // s为1号位, s后面的空格为2号位, pattern.lastIndex = 2
