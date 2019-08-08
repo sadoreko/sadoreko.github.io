@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则getElementsByClassName兼容代码</title>
+</head>
+<body>
+    <script>
+    var str = 'js js js';
+    var pattern = /js/; 
+    var pattern2 = /js/g; 
+
+    console.log(pattern.exec(str));
+    console.log(pattern.exec(str));   
+    console.log("---"); 
+    // 不使用全局匹配g时, 每次exec都只匹配一个js, 这个js的j在字符串的0位
+    // pattern.lastIndex属性, 默认情况/非全局匹配时, 值为0
+    // 全局匹配时, pattern.lastIndex = 匹配到的字符的下一个位置
+
+    console.log(pattern2.exec(str));   // index 0  第一个j在'js js js'的0位  
+    console.log(pattern2.exec(str));   // index 3  j的位置在'j0s1 2j34 5js'的3号位
+    console.log(pattern2.exec(str));   // index 6
+    console.log(pattern2.exec(str));   // null
+    console.log(pattern2.exec(str));   // index 0
+
+    // 第一次执行pattern.exec()时, 匹配到的'js'中的j为0号位, index = 0,
+    // s为1号位, s后面的空格为2号位, pattern.lastIndex = 2
+
+    // 第二次执行pattern.exec()时, 从字符串的pattern.lastIndex=2号位开始, 向后匹配,
+    // 匹配到的'js'中的j为3号位, index = 3; s后面的空格位5号位, pattern.lastIndex = 5
+
+    // 第三次执行pattern.exec()时, 读取pattern.lastIndex = 5, 从'js js js'的5号位开始, 向后匹配,
+    // 匹配到的'js'中的j为6号位, index 6; s为7号位, pattern.lastIndex = 7+1 = 8
+
+    // 第四次执行pattern.exec()时, 从8号位开始匹配, 但'js js js'字符串已经到头了, 没有匹配到, 返回null
+    // 自动重置pattern.lastIndex = 0
+
+    // 第四次执行pattern.exec()时, 从0位开始匹配
+    </script>
+</body>
+</html>
