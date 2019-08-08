@@ -38,6 +38,29 @@
     // 自动重置pattern.lastIndex = 0
 
     // 第四次执行pattern.exec()时, 从0位开始匹配
+        
+    // -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+        
+    var newStr = '1.js 2.js 3.js';
+    var newPattern = /js/g;
+    var total = 0;
+    var result;
+    var match = '';
+
+    while((result = newPattern.exec(newStr)) != null){
+        total++;
+        match += '第' + total + '个匹配到的是: ' + result[0] + ', 它的位置是: ' + result.index + '\n';
+    }
+    match += '共找到' + total + '处匹配';
+    console.log(newStr);
+    console.log(match);
+    /*
+    1.js 2.js 3.js
+    第1个匹配到的是: js, 它的位置是: 2
+    第2个匹配到的是: js, 它的位置是: 7
+    第3个匹配到的是: js, 它的位置是: 12
+    共找到3处匹配
+    */
     </script>
 </body>
 </html>
