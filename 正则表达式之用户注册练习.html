@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式之用户注册练习</title>
+    <style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: #eee;
+    }
+    .header{
+        height: 60px;
+        background-color: deepskyblue;
+        color: #ffffff;
+        font-size: 30px;
+        line-height: 60px;
+        text-indent: 2em;
+    }
+    .section{
+        width: 850px;
+        padding: 50px 0 50px 400px;
+    }
+    .signupItem{
+        padding: 10px 0;
+    }
+    .signupItem label{
+        display: inline-block;
+        width: 160px;
+        text-align: right;
+        padding-right: 20px;
+    }
+    .signupItem input{
+        width: 250px;
+        height: 20px;
+    }
+    .signupItem select{
+        width: 250px;
+        height: 24px;
+    }
+    .signupItem .errorText{
+        display: inline-block;
+        width: 400px;
+        color: #f00;
+    }
+    .submitBtn{
+        width: 200px;
+        height: 40px;
+        background-color: deepskyblue;
+        color: #fff;
+        font-size: 16px;
+        margin: 20px 0 0 150px;
+    }
+    </style>
+</head>
+<body>
+    <header class="header">用户注册</header>
+    <section class="section">
+        <div class="signupItem">
+            <label for="username">用户名:</label>
+            <input type="text" name="username" id="username">
+            <span class="errorText"></span>
+        </div>
+        <div class="signupItem">
+            <label for="password">登录密码:</label>
+            <input type="password" name="password" id="password">
+            <span class="errorText"></span>
+        </div>
+        <div class="signupItem">
+            <label for="confirmPsw">确认密码:</label>
+            <input type="password" name="confirmPsw" id="confirmPsw">
+            <span class="errorText"></span>
+        </div>
+        <div class="signupItem">
+            <label for="name">姓名:</label>
+            <input type="text" name="name" id="name">
+            <span class="errorText"></span>
+        </div>
+        <div class="signupItem">
+            <label for="gender">性别:</label>
+            <select name="gender" id="gender">
+                <option value="male">男</option>
+                <option value="female">女</option>
+            </select>
+        </div>
+        <div class="signupItem">
+            <label for="idNum">身份证号码:</label>
+            <input type="text" name="idNum" id="idNum">
+            <span class="errorText"></span>
+        </div>
+        <div class="signupItem">
+            <label for="email">邮箱:</label>
+            <input type="email" name="email" id="email">
+            <span class="errorText"></span>
+        </div>
+        <div class="signupItem">
+            <label for="phoneNum">手机号码:</label>
+            <input type="text" name="phoneNum" id="phoneNum">
+            <span class="errorText"></span>
+        </div>
+        <input type="button" value="提交" class="submitBtn">
+    </section>
+
+    <script type="text/javascript">
+    var signupItem = document.querySelectorAll(".signupItem");
+    var submitBtn = document.querySelector(".submitBtn");
+    var userInfo = {};
+    var errInfo = {
+        username: "6-20位字母、数字或“_”, 字母开头",
+        password: "6-18位, 包含字母、数字或符号, 中间不能有空格",
+        confirmPsw: "两次输入的密码不一样",
+        name: "真实姓名为2-4位的中文",
+        idNum: "请输入18位的身份证号码",
+        email: "邮箱格式不正确",
+        phoneNum: "电话号码不正确",
+    };
+    var pattern = {
+        username: /^[a-z][a-z0-9_]{5,19}$/i,
+        password: /^[\S]{6,18}$/,
+        confirmPsw: /^[\S]{6,18}$/,
+        name: /^[\u4e00-\u9fa5]{2,4}$/,
+        idNum: /^[1-9]\d{16}[0-9|X]$/,
+        email: /^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/,
+        phoneNum: /^1[345678]\d{9}$/,
+    };
+
+    for(var i=0, len=signupItem.length; i<len; i++){
+        var elem;
+        if(elem = signupItem[i].querySelector("input")){
+            userInfo[elem.id] = elem;
+        }
+    }
+
+    for(var p in userInfo){
+        userInfo[p].onchange = function(){
+            var spanNode = this.nextElementSibling;
+            if(!this.value || !pattern[this.id].test(this.value)){
+                spanNode.innerText = errInfo[this.id];
+            }else if(this.id == "confirmPsw" && this.value !== userInfo["password"].value){
+                spanNode.innerText = errInfo[this.id];
+            }else{
+                spanNode.innerText = "OK";
+            }
+        }
+    }
+
+    submitBtn.onclick = function(){
+        var spanNode = document.querySelectorAll(".errorText");
+        var result = "";
+        var pattern = /^OKOKOKOKOKOKOK$/;
+        for(var i=0, len=spanNode.length; i<len; i++){
+            result += spanNode[i].innerText;
+        }
+        console.log(result);
+        if(pattern.test(result)){
+            alert("验证成功");
+        }else{
+            alert("验证失败");
+        }
+    }
+    </script>
+</body>
+</html>
