@@ -12,4 +12,4 @@
 2019.8 [正则RegExp对象的实例方法](/正则RegExp对象的实例方法.html)  
 ​            [正则表达式之用户注册练习](/正则表达式之用户注册练习.html)   
 
-2019.9 [丹特丽安的书架](/singlePages/index.html)   
+2019.9 [丹特丽安的书架](https://sadoreko.github.io/singlePages/index.html)   
