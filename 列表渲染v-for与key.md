@@ -65,6 +65,7 @@ The reason has to do with performance. Attribute `key` helps Vue determine uniqu
 
 有了key以后, Vue不需要把整个list重新渲染一遍, 根据key就能判断某个item是否已经渲染了, 只需要处理未渲染的item就可以了.
 
+
 Secondly, if you have complex components within your list when you are using `v-for` and `:key` is not provided, then whenever the list is changed or re-ordered, it simply changes the DOM but doesn't destroy existing components and that can cause local state mismatch. That is why it is must to have `:key` attribute.
 
 如果列表里有复杂的组件, 使用了 `v-for` 但没设置 `:key` , 当列表项改变或重新渲染列表时, 仅更改了DOM但不会销毁现有组件, 可能导致本地状态不匹配.
@@ -83,9 +84,13 @@ Note: Also remember that using `v-for` `index` for `:key` is a bad idea as it is
 
 
 
+#### 其他:
+
 > :key相当于是索引的作用，提高循环性能.
 
 > `key` 的特殊属性主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。如果不使用 key，Vue 会使用一种最大限度减少动态元素并且尽可能的尝试修复/再利用相同类型元素的算法。使用 key，它会基于 key 的变化重新排列元素顺序，并且会移除 key 不存在的元素。
 >
 > 有相同父元素的子元素必须有**独特的 key**。重复的 key 会造成渲染错误。
+
+> 使用v-for更新已渲染的元素列表时,默认用就地复用策略;列表数据修改的时候,他会根据key值去判断某个值是否修改,如果修改,则重新渲染这一项,否则复用之前的元素
 
