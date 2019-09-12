@@ -57,7 +57,7 @@ stack overflow 上有若干讨论, 这里贴一个上来, 我简单翻译了下:
 <li v-for="post in posts" :key="post.id">
 ```
 
-The reason has to do with performance. Attribute `key` helps Vue determine unique items in a list. Consider the example of sorting. If your UI has a sort button for posts, then your the order of items in `post` array will change. But does that mean Vue is going to re-render entire list? Of course not! Using `:key` it can determine if the item was already rendered on UI. It simply shuffles the DOM nodes and saves expensive rendering cycles.
+> The reason has to do with performance. Attribute `key` helps Vue determine unique items in a list. Consider the example of sorting. If your UI has a sort button for posts, then your the order of items in `post` array will change. But does that mean Vue is going to re-render entire list? Of course not! Using `:key` it can determine if the item was already rendered on UI. It simply shuffles the DOM nodes and saves expensive rendering cycles.
 
 答: 是为了性能. `key` 能帮助Vue把数组中的每个项变得独一无二.   
 
@@ -67,11 +67,11 @@ The reason has to do with performance. Attribute `key` helps Vue determine uniqu
 只需要处理未渲染的item就可以了.  
 
 
-Secondly, if you have complex components within your list when you are using `v-for` and `:key` is not provided, then whenever the list is changed or re-ordered, it simply changes the DOM but doesn't destroy existing components and that can cause local state mismatch. That is why it is must to have `:key` attribute.
+> Secondly, if you have complex components within your list when you are using `v-for` and `:key` is not provided, then whenever the list is changed or re-ordered, it simply changes the DOM but doesn't destroy existing components and that can cause local state mismatch. That is why it is must to have `:key` attribute.
 
 如果列表里有复杂的组件, 使用了 `v-for` 但没设置 `:key` , 当列表项改变或重新渲染列表时, 仅更改了DOM但不会销毁现有组件, 可能导致本地状态不匹配.  
 
-Note: Also remember that using `v-for` `index` for `:key` is a bad idea as it is not unique across your collection.  
+> Note: Also remember that using `v-for` `index` for `:key` is a bad idea as it is not unique across your collection.  
 
 注意: 用 `index`  作为key是不可取的, 因为 `index` 和列表项不是一一对应的, 不具有独特性  
 
