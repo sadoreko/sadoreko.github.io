@@ -9,12 +9,11 @@
 
 2019.7    [JavaScript杂记](/JavaScript%E6%9D%82%E8%AE%B0.md)  
 
-2019.8   [正则RegExp对象的实例方法](/正则RegExp对象的实例方法.html)  
-​               [正则表达式之用户注册练习](/正则表达式之用户注册练习.html)   
+2019.8    [正则RegExp对象的实例方法](/正则RegExp对象的实例方法.html)  
+          [正则表达式之用户注册练习](/正则表达式之用户注册练习.html)   
 
-2019.9   [丹特丽安的书架](https://sadoreko.github.io/singlePages/index.html)   
+2019.9    [丹特丽安的书架](https://sadoreko.github.io/singlePages/index.html)   
+          [列表渲染v-for与key](/列表渲染v-for与key.md)   
 
-​               [列表渲染v-for与key](/列表渲染v-for与key.md)   
 
-​	
 
