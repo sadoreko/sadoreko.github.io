@@ -46,8 +46,3 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-/* 我加的代码 */
-a{
-    text-decoration: none;
-}

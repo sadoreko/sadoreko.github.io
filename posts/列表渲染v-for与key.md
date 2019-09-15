@@ -80,6 +80,12 @@ stack overflow 上有若干讨论, 这里贴一个上来, 我简单翻译了下:
 
 
 
+> Because arrays are **mutable**. The index of any given item can and will *change* if items are added to or removed from the array.
+>
+> You want your `key` to be a unique value identifying only your unique component. A primary key that you create is always better than using an index.
+
+
+
 可以看下 Vue.js 官网的[列表渲染-维护状态](https://cn.vuejs.org/v2/guide/list.html#%E7%BB%B4%E6%8A%A4%E7%8A%B6%E6%80%81) 一节.  
 
 

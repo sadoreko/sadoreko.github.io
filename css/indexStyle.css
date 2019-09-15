@@ -1,0 +1,38 @@
+body {
+	padding-top: 50px;
+}
+/* 导航栏 */
+.titleContainer{
+	height: 426px;
+	background-image: url('../image/squirrel-4466602_640.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 5px;
+	text-align: center;
+	font-family: "Open Sans";
+	font-weight: 300;
+	color: #fff;
+}
+/* 标题 */
+.titleContainer .title{
+	margin: 150px 0 50px;
+	font-size: 4rem;
+}
+.titleContainer .quotes{
+	font-size: 1.5rem;
+}
+/* 文章们 */
+.myPosts{
+	margin-top: 40px;
+}
+.articleLink{
+	font-size: 1.7rem;
+	color: #333;
+}
+.articleLink:visited{
+	color: cadetblue;
+}
+.articleLink:hover{
+	color: chocolate;
+	text-decoration: none;
+}
