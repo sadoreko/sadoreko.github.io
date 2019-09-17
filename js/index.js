@@ -11,7 +11,8 @@ Vue.component('linkandtitle', {
     </div>
   </div>`
 })
-// '<ul class="panel panel-default"><li class="panel-heading">{{ article.date }}</li><li><a :href="article.path">{{  article.title }}</a></li></ul>'
+// 未添加class的结构
+// '<ul><li>{{ article.date }}</li><li><a :href="article.path">{{  article.title }}</a></li></ul>'
 
 var addArticles = new Vue({
   el: '#articleAndLink',
